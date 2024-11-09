@@ -33,6 +33,7 @@ console.log(scene)
 
 // 渲染循环
 function render() {
+  mesh.rotateY(0.01)
   renderer.render(scene, camera)
   requestAnimationFrame(render)
 }
