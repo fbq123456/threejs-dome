@@ -17,6 +17,7 @@ texture.flipY = false //贴图翻转属性和模型保持一致
 loader.load("../public/img/手机模型.glb",glt => {
     const a = glt.scene.children[0]
 
+
     a.material.map = texture
     mesh.add(glt.scene)
     // mesh.material.map = texture.map

@@ -1,7 +1,9 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import {
+  OrbitControls
+} from 'three/addons/controls/OrbitControls.js';
 
-import  model  from './model.js';//模型对象
+import model from './model.js'; //模型对象
 
 //场景
 const scene = new THREE.Scene();
@@ -25,16 +27,18 @@ scene.add(ambient);
 const width = window.innerWidth;
 const height = window.innerHeight;
 const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
-// camera.position.set(292, 223, 185);
-camera.position.set(200, 200, 200);//根据渲染范围尺寸数量级设置相机位置
+camera.position.set(500, 500,500);
 camera.lookAt(0, 0, 0);
+
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
-
-//解决加载gltf格式模型颜色偏差问题
 renderer.outputEncoding = THREE.sRGBEncoding;
+
+// 设置相机控件轨道控制器OrbitControls
+const controls = new OrbitControls(camera, renderer.domElement);
+
 
 // 渲染循环
 function render() {
@@ -44,7 +48,6 @@ function render() {
 render();
 
 
-const controls = new OrbitControls(camera, renderer.domElement);
 
 // 画布跟随窗口变化
 window.onresize = function () {

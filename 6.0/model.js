@@ -10,7 +10,7 @@ const mesh = new THREE.Group()
 
 loader.load("../public/工厂.gltf", glt => {
   console.log(glt)
-  // 循环
+  //批量修改模式材质
   glt.scene.traverse((obj) => {
     if(obj.isMesh) {
 
