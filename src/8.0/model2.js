@@ -38,11 +38,11 @@ loader.load("../public/img/车pbr.glb", function (gltf) {
     mesh2.material.envMapIntensity = 1.0; ////环境贴图对Mesh表面影响程度
 
     // 查看threejs解析的PBR材质
-    gltf.scene.traverse(function(obj) {
-        if (obj.isMesh) {
-            console.log('obj.material',obj.material);
-        }
-    });
+    // gltf.scene.traverse(function(obj) {
+    //     if (obj.isMesh) {
+    //         // console.log('obj.material',obj.material);
+    //     }
+    // });
     console.log('外壳',mesh1.material);
     console.log('玻璃',mesh2.material);
 
@@ -69,5 +69,14 @@ loader.load("../public/img/车pbr.glb", function (gltf) {
     matFolder2.add(mesh2.material, 'transmission', 0, 1);
     matFolder2.add(mesh2.material, 'ior', 1, 2.333);
     matFolder2.add(mesh2.material, 'envMapIntensity', 0, 10);
+    document.getElementById('boxCard').style.display = 'none';
+},(xhr) => {
+    console.log(xhr)
+    const a = xhr.loaded / xhr.total
+    const res = document.getElementById('prd')
+    const b = Math.floor(a * 100 ) + '%'
+    res.style.width = a * 400 + 'px'
+    res.style.textIndent = a * 400 + 5 + 'px'
+    res.innerHTML = b
 })
 export default model;

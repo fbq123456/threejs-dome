@@ -1,6 +1,6 @@
-// import './src/8.0/index.js'
+import './src/10.0曲线/index.js'
 
-import './src/dome/dome.js'
+// import './src/dome/dome.js'
 // // 引入threejs
 // import * as THREE from "three"
 //
