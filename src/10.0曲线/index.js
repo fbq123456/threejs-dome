@@ -3,7 +3,7 @@ import {
     OrbitControls
 } from 'three/addons/controls/OrbitControls.js';
 
-import model from './model3.js'; //模型对象
+import model from './model6.js'; //模型对象
 
 //场景
 const scene = new THREE.Scene();
