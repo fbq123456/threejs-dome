@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 100vw;
   min-height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -114,4 +115,36 @@ button:focus-visible {
   height: 100%;
   color: white;
   background-color: #bcd329;
+}
+
+#boxCard {
+
+
+}
+
+.right_btn{
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  /*transform: translate(-50%, -50%);*/
+}
+
+.left_btn{
+  position: absolute;
+  top: 80%;
+  left: 40%;
+  /*transform: translate(-50%, -50%);*/
+}
+
+
+.box-card {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  background-color: #535bf2;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 999999;
 }

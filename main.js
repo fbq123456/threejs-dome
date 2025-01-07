@@ -1,7 +1,9 @@
-import './src/10.0曲线/index.js'
-
-// import './src/dome/dome.js'
+// import './src/后期处理/index.js'
+// import './src/dome/长方体聚光源.js'
+import './src/加载工厂模型/index.js'
+// import './src/精灵模型/index.js'
 // // 引入threejs
+// import "./src/dome/圣诞树.js"
 // import * as THREE from "three"
 //
 // // 导入控制器

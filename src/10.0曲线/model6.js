@@ -17,7 +17,7 @@ import * as THREE from 'three';
 // //创建网格材质
 const material = new THREE.MeshLambertMaterial({
     color: '#ff8800',
-    wireframe: true,
+    // wireframe: true,
     side: THREE.DoubleSide//双面可见
 })
 
@@ -40,5 +40,6 @@ console.log(heartShape)
 const geometry = new THREE.ShapeGeometry( heartShape );
 
 const mesh = new THREE.Mesh(geometry,material)
+mesh.rotation.x = Math.PI;
 
 export default mesh

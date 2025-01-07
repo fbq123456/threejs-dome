@@ -6,6 +6,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
 import gui from "../gui/index.js"
+import scene from "three/addons/offscreen/scene.js";
 
 // 创建材质子菜单
 const matFolder1 = gui.addFolder("外壳材质")
@@ -29,13 +30,30 @@ const ambientLight = new THREE.AmbientLight("#ffffff", 20) // 减少环境光的
 three.add(ambientLight)
 
 const directionalLight = new THREE.DirectionalLight("#ffffff", 10) // 更改方向光的颜色和强度
-directionalLight.position.set(1, 1, 1).normalize()
+directionalLight.position.set(-500, 200, -200)
 three.add(directionalLight)
 
-// 增加场景光照
+directionalLight.castShadow = true //平行光开启阴影得计算功能
+
+
+directionalLight.shadow.camera.left = -100
+directionalLight.shadow.camera.right = 100
+directionalLight.shadow.camera.top = 100
+directionalLight.shadow.camera.bottom = -100
+directionalLight.shadow.camera.near = 0.5
+directionalLight.shadow.camera.far = 10
+
+
+const camerHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+three.add(camerHelper)
+
+// 增加场景光照(点光源)
 const pointLight = new THREE.PointLight("#ffffff", 10, 10)
 pointLight.position.set(100, 100, 100)
 three.add(pointLight)
+
+
+
 
 //添加世界坐标辅助器
 const axesHelper = new THREE.AxesHelper(5)
@@ -112,20 +130,22 @@ loader.load(
       }
     })
 
+
+
     model.position.set(0, 0, 0) // 确保模型在中心
     model.scale.set(3, 3, 3) // 调整模型大小为原来的两倍
     three.add(model)
 
-      document.getElementById('boxCard').style.display = 'none';
+      // document.getElementById('boxCard').style.display = 'none';
 
   },(xhr) => {
         console.log(xhr)
-        const a = xhr.loaded / xhr.total
-        const res = document.getElementById('prd')
-        const b = Math.floor(a * 100 ) + '%'
-        res.style.width = a * 400 + 'px'
-        res.style.textIndent = a * 400 + 5 + 'px'
-        res.innerHTML = b
+        // const a = xhr.loaded / xhr.total
+        // const res = document.getElementById('prd')
+        // const b = Math.floor(a * 100 ) + '%'
+        // // res.style.width = a * 400 + 'px'
+        // // res.style.textIndent = a * 400 + 5 + 'px'
+        // res.innerHTML = b
     }
 )
 
